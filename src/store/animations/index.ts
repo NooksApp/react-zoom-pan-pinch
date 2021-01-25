@@ -11,32 +11,33 @@ export function handleDisableAnimation() {
 }
 
 export function animate(animationName, animationTime, callback) {
-  if (!this.mounted) return;
-  const startTime = new Date().getTime();
-  const lastStep = 1;
+  return;
+  // if (!this.mounted) return;
+  // const startTime = new Date().getTime();
+  // const lastStep = 1;
 
-  // if another animation is active
-  handleDisableAnimation.call(this);
+  // // if another animation is active
+  // handleDisableAnimation.call(this);
 
-  // new animation
-  this.animation = () => {
-    if (!this.animation || !this.mounted) return;
-    const frameTime = new Date().getTime() - startTime;
-    const animationProgress = frameTime / animationTime;
-    const animationType = availableAnimations[animationName];
+  // // new animation
+  // this.animation = () => {
+  //   if (!this.animation || !this.mounted) return;
+  //   const frameTime = new Date().getTime() - startTime;
+  //   const animationProgress = frameTime / animationTime;
+  //   const animationType = availableAnimations[animationName];
 
-    const step = animationType(animationProgress);
+  //   const step = animationType(animationProgress);
 
-    if (frameTime >= animationTime) {
-      callback(lastStep);
-      this.animation = null;
-    } else {
-      callback(step);
-      requestAnimationFrame(this.animation);
-    }
-  };
+  //   if (frameTime >= animationTime) {
+  //     callback(lastStep);
+  //     this.animation = null;
+  //   } else {
+  //     callback(step);
+  //     requestAnimationFrame(this.animation);
+  //   }
+  // };
 
-  requestAnimationFrame(this.animation);
+  // requestAnimationFrame(this.animation);
 }
 
 export function animateComponent({ targetState, speed, type }) {
