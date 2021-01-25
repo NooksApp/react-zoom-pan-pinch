@@ -1,5 +1,3 @@
-import { availableAnimations } from "./utils";
-
 export function handleDisableAnimation() {
   if (!this.mounted) return;
   if (this.animation) {
@@ -9,7 +7,7 @@ export function handleDisableAnimation() {
   this.animation = false;
   this.velocity = false;
 }
-
+// @ts-ignore
 export function animate(animationName, animationTime, callback) {
   return;
   // if (!this.mounted) return;
